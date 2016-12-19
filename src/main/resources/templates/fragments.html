@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header" class="container">
+    <h1 class="jumbotron">Tribuh books <small>find everything you like</small></h1>
+
+    <div th:if="${logged}" class="btn-group btn-group-lg" style="float: right">
+
+    </div>
+
+    <div th:unless="${logged}" class="btn-group btn-group-lg" style="float: right">
+        <a href="/signIn" type="button" class="btn btn-default">Sing in</a>
+        <a href="/signUp" type="button" class="btn btn-default">Sing up</a>
+    </div>
+</header>
+</body>
+</html>
