@@ -20,10 +20,10 @@ public class DataAccessTest {
     private DataAccessObject dataAccessObject;
 
     private final String LOGIN_FORMAT = "login%1$d";
-    private final String EMAIL_FORMAT = "mail%1$d";
+    private final String EMAIL_FORMAT = "mail%1$d@mail.com";
     private final String PASSWORD = "123456";
 
-//    @Test
+    @Test
     public void testSignUp() {
         int numOfRows = 100;
         for (int rowNum = 0; rowNum < numOfRows; rowNum++) {
@@ -32,13 +32,13 @@ public class DataAccessTest {
         }
     }
 
-    @Test
-    public void testSingIn() {
-        int numOfRows = 100;
-        for (int rowNum = 0; rowNum < numOfRows; rowNum++) {
-            User user = dataAccessObject.signIn(
-                    String.format(LOGIN_FORMAT, rowNum), PASSWORD);
-            System.out.println(user.toString());
-        }
-    }
+//    @Test
+//    public void testSingIn() {
+//        int numOfRows = 100;
+//        for (int rowNum = 0; rowNum < numOfRows; rowNum++) {
+//            User user = dataAccessObject.signIn(
+//                    String.format(LOGIN_FORMAT, rowNum), PASSWORD);
+//            System.out.println(user.toString());
+//        }
+//    }
 }
