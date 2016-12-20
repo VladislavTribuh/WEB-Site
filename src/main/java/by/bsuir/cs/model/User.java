@@ -1,5 +1,7 @@
 package by.bsuir.cs.model;
 
+import java.util.List;
+
 /**
  * Created by Maksim Danilov on 17.12.2016.
  * WEB-site

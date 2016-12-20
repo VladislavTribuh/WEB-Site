@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="meta">
+    <title>Tribuh books</title>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 <body>
 <header th:fragment="header" class="container">
     <h1 class="jumbotron">Tribuh books <small>find everything you like</small></h1>
@@ -12,6 +21,19 @@
         <a href="/signIn" type="button" class="btn btn-default">Sing in</a>
         <a href="/signUp" type="button" class="btn btn-default">Sing up</a>
     </div>
-</header>
+</header >
+<div class="container">
+    <div th:fragment="book-info" class="media">
+        <div class="media-left">
+            <img src="${book.posterPath}" class="media-object" style="width: 33%"/>
+        </div>
+        <div class="media-body">
+            <h3 class="media-heading">${book.name}<span class="budge">${book.number}</span></h3>
+            <p><h4>Year: </h4>${book.year}</p>
+            <p><h4>Author: </h4>${book.author}</p>
+            <p><h4>Description: </h4>${book.description}</p>
+        </div>
+    </div>
+</div>
 </body>
 </html>

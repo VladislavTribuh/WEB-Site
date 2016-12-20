@@ -2,12 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: meta"></head>
 <body>
-<header th:replace="fragments :: header" class="container">
-
-</header>
+<header th:replace="fragments :: header"></header>
 <section class="container">
-    <p th:text="'Email ' + ${email}"/>
-    <p th:text="'Pass ' + ${pass}"/>
+    <div th:replace="fragments :: book_info"></div>
 </section>
 </body>
 </html>
