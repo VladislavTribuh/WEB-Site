@@ -102,6 +102,11 @@ public class SiteController {
         return PageTemplateName.ACCOUNT_PAGE;
     }
 
+    @RequestMapping("/gallery")
+    public String gallery() {
+        return "gallery";
+    }
+
     private void getOrders(Integer userID, Model model) {
         model.addAttribute(ModelAttributeName.BOOKS_LIST, dataAccessObject.getUserOrders(userID));
     }

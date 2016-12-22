@@ -25,11 +25,13 @@
         <a href="/" type="button" class="btn btn-default">Main</a>
         <a href="/logOut" type="button" class="btn btn-default">Log out</a>
         <button type="submit" class="btn btn-default" form="form1">Profile</button>
+        <a href="/gallery" type="button" class="btn btn-default">Gallery</a>
     </div>
 
     <div th:unless="${logged}" class="btn-group btn-group-lg" style="float: right">
         <a href="/signIn" type="button" class="btn btn-default">Sing in</a>
         <a href="/signUp" type="button" class="btn btn-default">Sing up</a>
+        <a href="/gallery" type="button" class="btn btn-default">Gallery</a>
     </div>
 </header >
 <div class="container">
