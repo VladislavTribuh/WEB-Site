@@ -13,8 +13,18 @@
 <header th:fragment="header" class="container">
     <h1 class="jumbotron">Tribuh books <small>find everything you like</small></h1>
 
-    <div th:if="${logged}" class="btn-group btn-group-lg" style="float: right">
 
+    <!--/*@thymesVar id="logged" type="boolean"*/-->
+    <div th:if="${logged}" class="btn-group btn-group-lg" style="float: right">
+        <form action="/accountPage" id="form1" method="post">
+            <!--/*@thymesVar id="email" type="java.lang.String"*/-->
+            <input type="hidden" name="email" th:value="${email}"/>
+            <!--/*@thymesVar id="password" type="java.lang.String"*/-->
+            <input type="hidden" name="pass" th:value="${password}"/>
+        </form>
+        <a href="/" type="button" class="btn btn-default">Main</a>
+        <a href="/logOut" type="button" class="btn btn-default">Log out</a>
+        <button type="submit" class="btn btn-default" form="form1">Profile</button>
     </div>
 
     <div th:unless="${logged}" class="btn-group btn-group-lg" style="float: right">
@@ -25,13 +35,39 @@
 <div class="container">
     <div th:fragment="book-info" class="media">
         <div class="media-left">
-            <img src="${book.posterPath}" class="media-object" style="width: 33%"/>
+            <!--/*@thymesVar id="book" type="by.bsuir.cs.model.Book"*/-->
+            <img th:src="${book.posterPath}" class="media-object" width="400" height="640"/>
         </div>
         <div class="media-body">
-            <h3 class="media-heading">${book.name}<span class="budge">${book.number}</span></h3>
-            <p><h4>Year: </h4>${book.year}</p>
-            <p><h4>Author: </h4>${book.author}</p>
-            <p><h4>Description: </h4>${book.description}</p>
+            <!--/*@thymesVar id="book" type="by.bsuir.cs.model.Book"*/-->
+            <h3 class="media-heading" th:text="${book.name}"><span class="budge" th:text="${book.number}"></span></h3>
+            <h4>Year: </h4><span th:text="${book.year}"></span>
+            <h4>Author: </h4><span th:text="${book.author}"></span>
+            <h4>Description: </h4><span th:text="${book.description}"></span>
+            <form th:if="${logged}" class="form-horizontal" action="/newOrder">
+                <input type="hidden" name="book_id" th:value="${book.id}"/>
+                <input type="hidden" name="user_id" th:value="${user_id}"/>
+                <input class="btn btn-default" type="submit" value="Basket"/>
+            </form>
+        </div>
+    </div>
+
+    <div th:fragment="book-brief" class="media" th:each="bookItem : ${booksList}">
+        <div class="media-left">
+            <img th:src="${bookItem.posterPath}" width="100px" height="160px"/>
+        </div>
+        <div class="media-body">
+            <h3 class="media-heading" th:text="${bookItem.name}"></h3> <span class="badge" th:text="${bookItem.number}"></span>
+            Year: <span th:text="${bookItem.year}"></span> Author: <span th:text="${bookItem.author}"></span>
+            <form class="form-horizontal" action="/bookInfo">
+                <input type="hidden" name="id" th:value="${bookItem.id}"/>
+                <input class="btn btn-default"  type="submit" value="Info"/>
+            </form>
+            <form th:if="${logged}" th:unless="${profile}" class="form-horizontal" action="/newOrder">
+                <input type="hidden" name="book_id" th:value="${bookItem.id}"/>
+                <input type="hidden" name="user_id" th:value="${user_id}"/>
+                <input class="btn btn-default" type="submit" value="Basket"/>
+            </form>
         </div>
     </div>
 </div>

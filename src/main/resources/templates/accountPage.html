@@ -6,8 +6,12 @@
 
 </header>
 <section class="container">
-    <p th:text="'Email ' + ${email}"/>
-    <p th:text="'Pass ' + ${pass}"/>
+    <p  th:text="'Email ' + ${email}"></p>
+    <p th:text="'Id ' + ${user_id}"></p>
+    <div th:if="${failure}" class="alert alert-danger">
+        <strong>Already in your basket.</strong>
+    </div>
+    <div th:replace="fragments :: book-brief"></div>
 </section>
 </body>
 </html>

@@ -12,7 +12,7 @@ public class User {
     private String login;
     private String email;
     private String password;
-    private String id;
+    private Integer id;
 
     public String getLogin() {
         return login;
@@ -36,6 +36,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
